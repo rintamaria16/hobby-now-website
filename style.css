@@ -450,7 +450,7 @@ section {
         /* ⬅ PUSHES IMAGE + CARD DOWN */
         padding-bottom: 30px;
 
-    background: url("images/equip.webp") ;
+    background: url("equip.webp") ;
     position: relative;
     width: 100%;
     height: auto;
@@ -588,4 +588,5 @@ section {
 .back-home-btn:hover {
     background: #6178c1;
 }
+
 
