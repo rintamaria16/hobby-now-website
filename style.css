@@ -331,7 +331,7 @@ section {
 .become-hobbyist {
     position: relative;
     padding: 120px 20px;
-    background-image: url("images/hobbyimg.jpg");
+    background-image: url("hobbyimg.jpg");
     /* Replace with your actual image */
     background-size: cover;
     background-position: center;
@@ -588,3 +588,4 @@ section {
 .back-home-btn:hover {
     background: #6178c1;
 }
+
