@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobby Now - Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">HOBBYNOW</div>
+
+        <div class="nav-right">
+            <span class="material-icons-outlined">help_outline</span>
+            <span class="material-icons-outlined">favorite_border</span>
+            <span class="material-icons-outlined">menu</span>
+
+            <div class="profile">R</div>
+        </div>
+    </nav>
+    <div class="back-home-container">
+        <a href="index.html" class="back-home-btn">← Back to Home</a>
+    </div>
+<!-- TOP SECTION LIKE "Become a Hobbyist" -->
+<section class="equipment-top-card">
+    <div class="equipment-header-card">
+        <h2>Find Equipment Easily</h2>
+        <p>Select whether you want to borrow or lend equipment near you.</p>
+
+        <div class="dropdown-box">
+            <select id="equipmentFilter" onchange="showEquipmentSection()">
+                <option value="">Choose an option</option>
+                <option value="borrow">Borrow Equipment</option>
+                <option value="lend">Lend Equipment</option>
+            </select>
+        </div>
+    </div>
+</section>
+
+
+<!-- BORROW SECTION -->
+<section id="borrowSection" class="equipment-section hidden">
+    <h3 class="section-title">Borrow Equipment</h3>
+
+    <div class="equipment-grid">
+
+        <div class="equipment-card">
+            <img src="images/borrow1.jpg" class="eq-img" />
+            <h4 class="eq-name">Acoustic Guitar</h4>
+            <p><strong>Owner:</strong> John Davis</p>
+            <p><strong>Price:</strong> 5€/hour</p>
+            <p><strong>Available:</strong> 10 AM – 6 PM</p>
+            <button class="eq-btn">Borrow Now</button>
+        </div>
+
+        <div class="equipment-card">
+            <img src="images/borrow2.jpg" class="eq-img" />
+            <h4 class="eq-name">Yoga Mat</h4>
+            <p><strong>Owner:</strong> Priya Sharma</p>
+            <p><strong>Price:</strong> 2€/hour</p>
+            <p><strong>Available:</strong> 8 AM – 8 PM</p>
+            <button class="eq-btn">Borrow Now</button>
+        </div>
+
+        <div class="equipment-card">
+            <img src="images/borrow3.webp" class="eq-img" />
+            <h4 class="eq-name">Digital Camera</h4>
+            <p><strong>Owner:</strong> Mark Lee</p>
+            <p><strong>Price:</strong> 8€/hour</p>
+            <p><strong>Available:</strong> 12 PM – 9 PM</p>
+            <button class="eq-btn">Borrow Now</button>
+        </div>
+
+    </div>
+</section>
+
+
+
+<!-- LEND SECTION -->
+<section id="lendSection" class="equipment-section hidden">
+    <h3 class="section-title">Lend Equipment</h3>
+
+    <div class="equipment-grid">
+
+        <div class="equipment-card">
+            <img src="images/lend1.webp" class="eq-img" />
+            <h4 class="eq-name">Sketching Kit</h4>
+            <p><strong>Your Price:</strong> Set Price</p>
+            <p><strong>Availability:</strong> Add Time</p>
+            <button class="eq-btn">Lend Now</button>
+        </div>
+
+        <div class="equipment-card">
+            <img src="images/lend2.jpg" class="eq-img" />
+            <h4 class="eq-name">Electric Guitar</h4>
+            <p><strong>Your Price:</strong> Set Price</p>
+            <p><strong>Availability:</strong> Add Time</p>
+            <button class="eq-btn">Lend Now</button>
+        </div>
+
+        <div class="equipment-card">
+            <img src="images/lend3.webp" class="eq-img" />
+            <h4 class="eq-name">Tripod Stand</h4>
+            <p><strong>Your Price:</strong> Set Price</p>
+            <p><strong>Availability:</strong> Add Time</p>
+            <button class="eq-btn">Lend Now</button>
+        </div>
+
+    </div>
+</section>
+
+<script>
+function showEquipmentSection() {
+const type = document.getElementById("equipmentFilter").value;
+
+document.getElementById("borrowSection").classList.add("hidden");
+document.getElementById("lendSection").classList.add("hidden");
+
+if (type === "borrow") {
+document.getElementById("borrowSection").classList.remove("hidden");
+}
+if (type === "lend") {
+document.getElementById("lendSection").classList.remove("hidden");
+}
+}
+</script>
+
+
+</body>
+</html>
