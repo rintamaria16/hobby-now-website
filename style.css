@@ -1,0 +1,311 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #f8fafc;
+    /* clean light background */
+    color: #1e293b;
+}
+
+/* NAVBAR */
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    background: white;
+    /* IMPORTANT so background stays solid */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2563eb;
+    /* blue */
+}
+
+.nav-right {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 24px;
+    color: #475569;
+}
+
+.profile {
+    width: 35px;
+    height: 35px;
+    background: #2563eb;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #dbeafe, #bfdbfe);
+    /* blue gradient */
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+     margin-top: 80px;
+        
+}
+
+.hero h1 {
+    font-size: 56px;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin-bottom: 35px;
+}
+
+/* SEARCH BAR */
+.search-box {
+    width: 70%;
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 16px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    font-size: 17px;
+    outline: none;
+}
+
+.search-box button {
+    padding: 12px 32px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* SMOOTH SCROLL */
+html {
+    scroll-behavior: smooth;
+}
+
+/* LINK BUTTONS */
+.subject-links a {
+    display: inline-block;
+    margin: 6px;
+    padding: 8px 14px;
+    background-color: #e2e8f0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #1e293b;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.subject-links a:hover {
+    background: #cbd5e1;
+}
+
+/* SECTIONS BELOW */
+section {
+    padding: 60px 20px;
+    margin-top: 40px;
+    border-radius: 14px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* INSTRUCTOR SECTION */
+.instructor-section {
+    padding: 60px 20px;
+    width: 90%;
+    margin: 40px auto;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #1e3a8a;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* GRID */
+.instructor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+/* CARD */
+.instructor-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: 0.3s;
+}
+
+.instructor-card:hover {
+    transform: translateY(-5px);
+}
+
+/* IMAGE */
+.instructor-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+/* TEXT CONTENT */
+.instructor-info {
+    padding: 18px;
+}
+
+.inst-name {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.inst-place {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.inst-rating {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.reviews {
+    color: #475569;
+    font-weight: 400;
+}
+
+/* BADGE */
+.badge {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+    margin: 6px 0 10px;
+    font-weight: 600;
+}
+
+/* SUBJECT */
+.inst-subject {
+    font-size: 14px;
+    color: #475569;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* PRICE */
+.inst-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e3a8a;
+}
+
+/* FREE CLASS */
+.inst-free {
+    font-size: 14px;
+    color: #059669;
+    font-weight: 600;
+}
+
+
+/* Become Hobbyist Section */
+/* Become Hobbyist Section with BG Image */
+.become-hobbyist {
+    position: relative;
+    padding: 120px 20px;
+    background-image: url("images/hobbyimg.jpg");
+    /* Replace with your actual image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    margin: 60px auto;
+    min-height: 350px;
+}
+
+/* Card inside image - right corner */
+.hobby-card {
+    width: 380px;
+    background: rgba(255, 255, 255, 0.85);
+    /* transparent white */
+    backdrop-filter: blur(6px);
+    /* smooth glass effect */
+    padding: 30px 25px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 110, 110, 0.2);
+    /* matches your pink theme */
+
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.hobby-card h2 {
+    font-size: 28px;
+    color: #2d2d2d;
+    margin-bottom: 12px;
+}
+
+.hobby-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 18px;
+}
+
+/* Matching button */
+.join-btn {
+    padding: 12px 28px;
+    background: #ff6e6e;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.join-btn:hover {
+    background: #ff5858;
+}

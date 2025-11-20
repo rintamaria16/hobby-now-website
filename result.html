@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+
+    <!-- Your Existing Theme Colors -->
+    <style>
+        :root {
+            --bright-navy-blue: hsl(214, 57%, 51%);
+            --oxford-blue: hsl(217, 54%, 11%);
+            --spanish-gray: hsl(0, 0%, 60%);
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f6f8fc;
+        }
+
+        /* Section Heading */
+        .results-heading {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--bright-navy-blue);
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* Results Grid */
+        .results {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            gap: 30px;
+        }
+
+        /* Card Container */
+        .tour-result {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e5e5;
+            transition: 0.3s;
+        }
+
+        /* Image */
+        .tour-image img {
+            width: 100%;
+            max-width: 350px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Details */
+        .tour-details {
+            padding: 25px;
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .tour-details h3 {
+            font-size: 1.8rem;
+            color: var(--oxford-blue);
+            margin: 0 0 10px;
+            text-transform: capitalize;
+        }
+
+        .tour-details p {
+            margin: 6px 0;
+            font-size: 1rem;
+        }
+
+        .total-price strong {
+            color: var(--bright-navy-blue);
+        }
+
+        /* Trainer Box */
+        .trainer-info {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .trainer-info img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--bright-navy-blue);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .tour-result {
+                flex-direction: column;
+            }
+
+            .tour-image img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Page Heading -->
+    <h2 class="results-heading">Search Results</h2>
+
+    <!-- Results Container -->
+    <div class="results"></div>
+
+
+
+    <!-- ORIGINAL JAVASCRIPT (cleaned only formatting) -->
+    <script>
+        // 1️⃣ Tour List
+        const tours = [
+            { destination: "Bavarian Alps", activities: ["Hiking"], pricePerPerson: 50, image: "hiking.jpg", trainer: "John Smith" },
+            { destination: "Black Forest", activities: ["Hiking"], pricePerPerson: 35, image: "hiking2.jpg", trainer: "Michael Brown" },
+            { destination: "Bavaria", activities: ["skiing"], pricePerPerson: 50, image: "snow.jpg", trainer: "John Smith" },
+            { destination: "Garmisch-Partenkirchen", activities: ["skiing"], pricePerPerson: 30, image: "snow1.jpg", trainer: "Mathew John" },
+            { destination: "Frankfurt", activities: ["golf"], pricePerPerson: 40, image: "golf.jpg", trainer: "Emily Clark" },
+            { destination: "Munich", activities: ["golf"], pricePerPerson: 60, image: "golf1.avif", trainer: "Sweeta Bia" },
+            { destination: "Munich", activities: ["horse racing"], pricePerPerson: 100, image: "horse.jpg", trainer: "Sweeta Bia" },
+            { destination: "Hamburg", activities: ["horse racing"], pricePerPerson: 80, image: "horse1.jpg", trainer: "Sweeta Bia" },
+            { destination: "Höhr-Grenzhausen", activities: ["pottery"], pricePerPerson: 30, image: "pottery.jpg", trainer: "Emily Clark" },
+            { destination: "Meissen", activities: ["pottery"], pricePerPerson: 30, image: "pottery1.jpg", trainer: "Emily Clark" },
+            { destination: "Mecklenburg Lake District", activities: ["Kayaking"], pricePerPerson: 30, image: "kayaking.jpg", trainer: "Laura Wilson" },
+            { destination: "River Rhine", activities: ["Kayaking"], pricePerPerson: 50, image: "kayaking1.jpg", trainer: "Laura Wilson" },
+            { destination: "Black Forest", activities: ["paragliding"], pricePerPerson: 50, image: "paragliding.jpg", trainer: "Laura Wilson" },
+            { destination: "Bavarian Alps", activities: ["paragliding"], pricePerPerson: 50, image: "paragliding1.jpg", trainer: "Laura Wilson" },
+            { destination: "Sylt Island", activities: ["surfing"], pricePerPerson: 150, image: "surfing.jpeg", trainer: "Laura Wilson" },
+            { destination: "Norderney Island", activities: ["surfing"], pricePerPerson: 120, image: "surfing1.jpg", trainer: "Laura Wilson" },
+            { destination: "Baltic Sea", activities: ["fishing"], pricePerPerson: 50, image: "fishing.png", trainer: "Laura Wilson" },
+            { destination: "River Rhine", activities: ["fishing"], pricePerPerson: 30, image: "fishing1.webp", trainer: "Laura Wilson" }
+        ];
+
+        // 2️⃣ URL values
+        const params = new URLSearchParams(window.location.search);
+        const destinationInput = params.get('destination') || '';
+        const people = parseInt(params.get('people')) || 1;
+        const checkin = params.get('checkin') || '';
+        const checkout = params.get('checkout') || '';
+
+        // 3️⃣ FILTER
+        const results = tours.filter(tour =>
+            tour.destination.toLowerCase().includes(destinationInput.toLowerCase()) ||
+            tour.activities.some(a => a.toLowerCase().includes(destinationInput.toLowerCase()))
+        );
+
+        // 4️⃣ DISPLAY
+        const resultsDiv = document.querySelector('.results');
+
+        if (results.length === 0) {
+            resultsDiv.innerHTML = "<p style='text-align:center; font-size:1.2rem;'>No results found.</p>";
+        } else {
+            results.forEach(tour => {
+                const totalPrice = tour.pricePerPerson * people;
+
+                resultsDiv.innerHTML += `
+                    <div class="tour-result">
+                        
+                        <div class="tour-image">
+                            <img src="${tour.image}" alt="${tour.destination}">
+                        </div>
+
+                        <div class="tour-details">
+                            <h3>${tour.destination}</h3>
+
+                            <p><strong>Activity:</strong> ${tour.activities.join(", ")}</p>
+                            <p><strong>Check-in:</strong> ${checkin || "—"}</p>
+                            <p><strong>Check-out:</strong> ${checkout || "—"}</p>
+                            <p class="total-price"><strong>Total Price:</strong> €${totalPrice}</p>
+
+                            <div class="trainer-info">
+                                <img src="hikingp1.jpg" alt="${tour.trainer}">
+                                <div>
+                                    <p><strong>Trainer:</strong> ${tour.trainer}</p>
+                                    <p>Experienced guide for your adventure</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+    </script>
+
+</body>
+
+</html>

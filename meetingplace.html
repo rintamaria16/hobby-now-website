@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobby Now - Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <style>
+        /* ---------------- NAVBAR (same as index) ---------------- */
+        .navbar {
+            width: 100%;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .profile {
+            width: 35px;
+            height: 35px;
+            background: #2563eb;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* PAGE TITLE SECTION */
+        .page-header {
+            text-align: center;
+            margin: 40px 0 20px;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            color: #1e3a8a;
+        }
+
+        /* SEARCH BAR */
+        .search-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .search-container input {
+            width: 280px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .search-container button {
+            padding: 10px 18px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            margin: 20px 30px;
+            font-size: 24px;
+            color: #2e5885;
+            font-weight: bold;
+        }
+
+        /* CARDS */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            padding: 0 30px 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 15px;
+        }
+
+        .card h3 {
+            margin: 5px 0;
+            font-size: 20px;
+            color: #222;
+        }
+
+        .location {
+            font-size: 15px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .join-btn {
+            display: block;
+            text-align: center;
+            background: #2563eb;
+            color: white;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 15px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+
+
+        .back-home-container {
+  width: 100%;
+  padding: 20px 40px;
+}
+
+.back-home-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #2563eb;  /* matches your warm theme */
+  color: white;
+  font-size: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background: #6178c1;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">HOBBYNOW</div>
+    
+        <div class="nav-right">
+            <span class="material-icons-outlined">help_outline</span>
+            <span class="material-icons-outlined">favorite_border</span>
+            <span class="material-icons-outlined">menu</span>
+    
+            <div class="profile">R</div>
+        </div>
+    </nav>
+
+    <div class="back-home-container">
+        <a href="index.html" class="back-home-btn">← Back to Home</a>
+    </div>
+
+    
+    <!-- PAGE TITLE -->
+    <div class="page-header">
+        <h1>Find the right spot for you</h1>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search location..." />
+        <button onclick="filterPlaces()">Search</button>
+    </div>
+
+    <!-- INDOOR SECTION -->
+    <div class="section-title">Indoor Meeting Places</div>
+    <div class="card-grid" id="indoorPlaces">
+
+        <div class="card place" data-location="dortmund">
+            <img src="indoor1.jpg" alt="">
+            <div class="card-content">
+                <h3>Community Art Center</h3>
+                <div class="location">Dortmund</div>
+                <p>A cozy indoor hall for art workshops & creative meetups.</p>
+                <a href="#" class="join-btn">Join</a>
+            </div>
+        </div>
+
+        <div class="card place" data-location="dortmund">
+            <img src="indoor2.jpg" alt="">
+            <div class="card-content">
+                <h3>Indoor Sports Hall</h3>
+                <div class="location">Dortmund</div>
+                <p>Perfect indoor space for sports, fitness & group events.</p>
+                <a href="#" class="join-btn">Join</a>
+            </div>
+        </div>
+
+        <div class="card place" data-location="dortmund">
+            <img src="indoor3.jpg" alt="">
+            <div class="card-content">
+                <h3>Yoga & Wellness Studio</h3>
+                <div class="location">Dortmund</div>
+                <p>Relaxing indoor studio ideal for meditation sessions.</p>
+                <a href="#" class="join-btn">Join</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- OUTDOOR SECTION -->
+    <div class="section-title">Outdoor Meeting Places</div>
+    <div class="card-grid" id="outdoorPlaces">
+
+        <div class="card place" data-location="dortmund">
+            <img src="outdoor1.jpg" alt="">
+            <div class="card-content">
+                <h3>Westfalenpark</h3>
+                <div class="location">Dortmund</div>
+                <p>A beautiful outdoor area for photography & walking groups.</p>
+                <a href="#" class="join-btn">Join</a>
+            </div>
+        </div>
+
+        <div class="card place" data-location="dortmund">
+            <img src="outdoor2.jpg" alt="">
+            <div class="card-content">
+                <h3>Lake Phoenix</h3>
+                <div class="location">Dortmund</div>
+                <p>Great outdoor site for running clubs & meetups.</p>
+                <a href="#" class="join-btn">Join</a>
+            </div>
+        </div>
+
+        <div class="card place" data-location="dortmund">
+            <img src="outdoor3.jpg" alt="">
+            <div class="card-content">
+                <h3>Botanical Garden</h3>
+                <div class="location">Dortmund</div>
+                <p>Nature-friendly outdoor place for group gatherings.</p>
+                <a href="#" class="join-btn">Join</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT: FILTERING BY SEARCH TEXT -->
+    <script>
+        function filterPlaces() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let cards = document.querySelectorAll(".place");
+
+            cards.forEach(card => {
+                let location = card.dataset.location.toLowerCase();
+                if (location.includes(input) || input === "") {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

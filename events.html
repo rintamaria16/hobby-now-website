@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobby Now - Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <style>
+        /* ---------------- NAVBAR (same as index) ---------------- */
+        .navbar {
+            width: 100%;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: #ffffff;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 22px;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        .profile {
+            width: 35px;
+            height: 35px;
+            background: #2563eb;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ---------------- PAGE HEADING ---------------- */
+        .events-header {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .events-header h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1e3a8a;
+        }
+
+        .events-header p {
+            font-size: 18px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* ---------------- EVENT CARDS ---------------- */
+        .events-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 18px;
+            box-shadow: 0 8px 20px #1e3a8a;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .event-content {
+            padding: 18px;
+        }
+
+        .event-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 8px;
+        }
+
+        .event-info {
+            font-size: 15px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .event-organizer {
+            margin-top: 10px;
+            font-weight: 600;
+            color: #2563eb;
+        }
+
+        .attendees {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #777;
+        }
+
+
+        .add-event-section {
+    text-align: center;
+    margin: 40px 0 60px;
+}
+
+.add-event-btn {
+    background:  #2563eb;
+    color: white;
+    padding: 14px 35px;
+    font-size: 18px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 110, 110, 0.3);
+}
+
+.add-event-btn:hover {
+    background: #6178c1;
+    transform: translateY(-3px);
+}
+
+
+.back-home-container {
+  width: 100%;
+  padding: 20px 40px;
+}
+
+.back-home-btn {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #2563eb;  /* matches your warm theme */
+  color: white;
+  font-size: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.back-home-btn:hover {
+  background: #6178c1;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">HOBBYNOW</div>
+
+        <div class="nav-right">
+            <span class="material-icons-outlined">help_outline</span>
+            <span class="material-icons-outlined">favorite_border</span>
+            <span class="material-icons-outlined">menu</span>
+
+            <div class="profile">R</div>
+        </div>
+    </nav>
+
+    <div class="back-home-container">
+        <a href="index.html" class="back-home-btn">← Back to Home</a>
+    </div>
+
+
+    <!-- ---------------- PAGE HEADING ---------------- -->
+    <section class="events-header">
+        <h1>Discover hobby & events near you</h1>
+        <p>Join exciting activities hosted by passionate hobbyists around you!</p>
+    </section>
+
+    <!-- ---------------- EVENTS GRID ---------------- -->
+    <section class="events-container">
+
+        <!-- Event 1 -->
+        <div class="event-card">
+            <img src="images/event1.webp" alt="Event">
+            <div class="event-content">
+                <div class="event-title">Just 15 – Meditation</div>
+                <div class="event-info">Wed, Nov 19 · 11:00 PM IST</div>
+                <div class="event-info">• Online</div>
+                <div class="event-organizer">by The Quiet Reset</div>
+                <div class="attendees">6 attendees like this</div>
+            </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="event-card">
+            <img src="images/event2.jpg" alt="Event">
+            <div class="event-content">
+                <div class="event-title">Creative Writing Circle</div>
+                <div class="event-info">Fri, Nov 22 · 4:00 PM</div>
+                <div class="event-info">• Munich, Germany</div>
+                <div class="event-organizer">by Anna Keller</div>
+                <div class="attendees">12 attendees</div>
+            </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="event-card">
+            <img src="images/event3.jpg" alt="Event">
+            <div class="event-content">
+                <div class="event-title">Sunset Yoga</div>
+                <div class="event-info">Sat, Nov 23 · 6:30 PM</div>
+                <div class="event-info">• Berlin</div>
+                <div class="event-organizer">by Yoga Soul Studio</div>
+                <div class="attendees">9 attendees</div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Event 4 -->
+        <div class="event-card">
+            <img src="images/event4.avif" alt="Event">
+            <div class="event-content">
+                <div class="event-title">German Baking Workshop</div>
+                <div class="event-info">Sun, Nov 24 · 10:00 AM</div>
+                <div class="event-info">• Hamburg</div>
+                <div class="event-organizer">by Chef Müller</div>
+                <div class="attendees">18 attendees</div>
+            </div>
+        </div>
+        
+        <!-- Event 5 -->
+        <div class="event-card">
+            <img src="images/event5.webp" alt="Event">
+            <div class="event-content">
+                <div class="event-title">Beginner Guitar Jam</div>
+                <div class="event-info">Tue, Nov 26 · 6:00 PM</div>
+                <div class="event-info">• Frankfurt</div>
+                <div class="event-organizer">by Music Hub</div>
+                <div class="attendees">22 attendees</div>
+            </div>
+        </div>
+        
+        <!-- Event 6 -->
+        <div class="event-card">
+            <img src="images/event6.jpg" alt="Event">
+            <div class="event-content">
+                <div class="event-title">Watercolor Art Meetup</div>
+                <div class="event-info">Thu, Nov 28 · 3:30 PM</div>
+                <div class="event-info">• Stuttgart</div>
+                <div class="event-organizer">by ArtHaus Germany</div>
+                <div class="attendees">10 attendees</div>
+            </div>
+        </div>
+
+
+    </section>
+
+    <div class="add-event-section">
+        <button class="add-event-btn">+ Add Your Event</button>
+    </div>
+
+
+</body>
+
+</html>
