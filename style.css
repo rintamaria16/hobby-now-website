@@ -78,6 +78,102 @@ body {
 
 
 
+/* Search Section */
+.main-search {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.main-search-box {
+    display: flex;
+    gap: 15px;
+    background: #ffffff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-field label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #334155;
+    margin-bottom: 4px;
+}
+
+.search-field input {
+    padding: 10px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+    width: 200px;
+    outline: none;
+    background-color: #f8fafc;
+}
+
+.search-field input:focus {
+    border-color: #ff6e6e;
+    background: #fff;
+}
+
+/* Search Button */
+.main-search-btn {
+    padding: 12px 25px;
+    background:#2563eb;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.main-search-btn:hover {
+    background: #0369a1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-search-box {
+        border-radius: 20px;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    .search-field input {
+        width: 100%;
+    }
+
+    .main-search-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* SMOOTH SCROLL */
@@ -225,7 +321,7 @@ section {
 .become-hobbyist {
     position: relative;
     padding: 120px 20px;
-    background-image: url("hobbyimg.jpg");
+    background-image: url("images/hobbyimg.jpg");
     /* Replace with your actual image */
     background-size: cover;
     background-position: center;
@@ -269,7 +365,7 @@ section {
 /* Matching button */
 .join-btn {
     padding: 12px 28px;
-    background: #ff6e6e;
+    background:#2563eb;
     color: white;
     border: none;
     border-radius: 40px;
@@ -279,9 +375,5 @@ section {
 }
 
 .join-btn:hover {
-    background: #ff5858;
-
+    background: #1e3a8a;
 }
-
-
-
