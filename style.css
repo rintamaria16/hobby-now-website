@@ -70,7 +70,7 @@ body {
 }
 
 .hero h1 {
-    font-size: 56px;
+    font-size: 30px;
     font-weight: 800;
     color: #1e3a8a;
     margin-bottom: 35px;
@@ -282,4 +282,5 @@ section {
     background: #ff5858;
 
 }
+
 
