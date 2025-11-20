@@ -280,6 +280,16 @@ section {
     color: #475569;
     font-weight: 400;
 }
+.equip-badge {
+    display: inline-block;
+    background: #d1fae5;
+    color: #047857;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
 
 /* BADGE */
 .badge {
@@ -321,7 +331,7 @@ section {
 .become-hobbyist {
     position: relative;
     padding: 120px 20px;
-    background-image: url("hobbyimg.jpg");
+    background-image: url("images/hobbyimg.jpg");
     /* Replace with your actual image */
     background-size: cover;
     background-position: center;
@@ -377,4 +387,204 @@ section {
 .join-btn:hover {
     background: #1e3a8a;
 }
+/*equipment.css*/
 
+/* TOP HEADER */
+.equipment-top {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.equipment-top h2 {
+    font-size: 32px;
+    color: #1e3a8a;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* SEARCH BOX */
+.search-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.search-box select {
+    padding: 14px 18px;
+    width: 260px;
+    border-radius: 12px;
+    border: 1px solid #d4d4d4;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    font-weight: 500;
+    background: white;
+    transition: 0.2s;
+}
+
+.search-box select:hover {
+    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* HIDE SECTIONS */
+.hidden {
+    display: none;
+}
+
+/* SECTION TITLE */
+.section-title {
+    text-align: center;
+    font-size: 24px;
+    color: #1e293b;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* EQUIPMENT CARDS */
+/* TOP CARD SECTION */
+.equipment-top-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 100px;
+        /* ⬅ PUSHES IMAGE + CARD DOWN */
+        padding-bottom: 30px;
+
+    background: url("images/equip.webp") ;
+    position: relative;
+    width: 100%;
+    height: auto;
+   
+}
+
+.equipment-header-card {
+    background: white;
+    padding: 28px 35px;
+    width: 85%;
+    max-width: 700px;
+    border-radius: 20px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+
+.equipment-header-card h2 {
+    font-size: 28px;
+    color: #1e3a8a;
+    margin-bottom: 10px;
+}
+
+.equipment-header-card p {
+    color: #475569;
+    margin-bottom: 20px;
+}
+
+/* DROPDOWN */
+.dropdown-box select {
+    padding: 12px;
+    width: 240px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    font-size: 16px;
+    background: #f8fafc;
+    cursor: pointer;
+}
+
+/* HIDE SECTIONS INITIALLY */
+.hidden {
+    display: none;
+}
+
+/* SECTION TITLE */
+.section-title {
+    text-align: center;
+    font-size: 26px;
+    color: #1e293b;
+    margin: 30px 0;
+    font-weight: 700;
+}
+
+/* GRID LAYOUT */
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+/* CARD */
+.equipment-card {
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.12);
+    transition: 0.2s;
+}
+
+.equipment-card:hover {
+    transform: translateY(-5px);
+}
+
+/* CARD TEXT */
+.eq-name {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* BUTTON */
+.eq-btn {
+    margin-top: 12px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.eq-btn:hover {
+    background: #1d4ed8;
+}
+
+/* EQUIPMENT CARD IMAGE */
+.eq-img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease-in-out;
+}
+
+/* Slight zoom on hover */
+.equipment-card:hover .eq-img {
+    transform: scale(1.03);
+}
+
+.back-home-container {
+    width: 100%;
+    padding: 30px 35px;
+    margin-top: 40px;
+    /* ADD THIS */
+}
+.back-home-btn {
+    display: inline-block;
+    padding: 10px 10px;
+    background: #2563eb;
+    /* matches your warm theme */
+    color: white;
+    font-size: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.back-home-btn:hover {
+    background: #6178c1;
+}
