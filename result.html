@@ -6,31 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Results</title>
 
-    <!-- Your Existing Theme Colors -->
     <style>
         :root {
-            --bright-navy-blue: hsl(214, 57%, 51%);
-            --oxford-blue: hsl(217, 54%, 11%);
-            --spanish-gray: hsl(0, 0%, 60%);
+            --blue: #2563eb;
+            --dark: #1e293b;
+            --light: #f1f5f9;
             --white: #ffffff;
         }
 
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            background: #f6f8fc;
+            background: #f8fafc;
         }
 
-        /* Section Heading */
+        /* HEADING */
         .results-heading {
             text-align: center;
-            font-size: 2rem;
-            color: var(--bright-navy-blue);
+            font-size: 32px;
+            color: var(--blue);
             margin-top: 40px;
-            margin-bottom: 20px;
         }
 
-        /* Results Grid */
+        /* GRID */
         .results {
             max-width: 1100px;
             margin: 0 auto;
@@ -39,55 +37,46 @@
             gap: 30px;
         }
 
-        /* Card Container */
-        .tour-result {
+        /* CARD */
+        .result-card {
+            background: white;
             display: flex;
             flex-wrap: wrap;
-            background: var(--white);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e5e5e5;
-            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
-        /* Image */
-        .tour-image img {
+        .result-img img {
             width: 100%;
             max-width: 350px;
             height: 100%;
             object-fit: cover;
         }
 
-        /* Details */
-        .tour-details {
+        .result-details {
             padding: 25px;
             flex: 1;
             min-width: 260px;
         }
 
-        .tour-details h3 {
-            font-size: 1.8rem;
-            color: var(--oxford-blue);
+        .result-details h3 {
             margin: 0 0 10px;
-            text-transform: capitalize;
+            font-size: 24px;
+            color: var(--dark);
         }
 
-        .tour-details p {
+        .result-details p {
             margin: 6px 0;
-            font-size: 1rem;
+            font-size: 16px;
         }
 
-        .total-price strong {
-            color: var(--bright-navy-blue);
-        }
-
-        /* Trainer Box */
+        /* Trainer */
         .trainer-info {
-            margin-top: 15px;
+            margin-top: 12px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .trainer-info img {
@@ -95,17 +84,13 @@
             height: 55px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--bright-navy-blue);
+            border: 2px solid var(--blue);
         }
 
-        /* Responsive */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .tour-result {
+            .result-card {
                 flex-direction: column;
-            }
-
-            .tour-image img {
-                max-width: 100%;
             }
         }
     </style>
@@ -113,84 +98,116 @@
 
 <body>
 
-    <!-- Page Heading -->
     <h2 class="results-heading">Search Results</h2>
 
-    <!-- Results Container -->
     <div class="results"></div>
 
 
-
-    <!-- ORIGINAL JAVASCRIPT (cleaned only formatting) -->
     <script>
-        // 1️⃣ Tour List
-        const tours = [
-            { destination: "Bavarian Alps", activities: ["Hiking"], pricePerPerson: 50, image: "hiking.jpg", trainer: "John Smith" },
-            { destination: "Black Forest", activities: ["Hiking"], pricePerPerson: 35, image: "hiking2.jpg", trainer: "Michael Brown" },
-            { destination: "Bavaria", activities: ["skiing"], pricePerPerson: 50, image: "snow.jpg", trainer: "John Smith" },
-            { destination: "Garmisch-Partenkirchen", activities: ["skiing"], pricePerPerson: 30, image: "snow1.jpg", trainer: "Mathew John" },
-            { destination: "Frankfurt", activities: ["golf"], pricePerPerson: 40, image: "golf.jpg", trainer: "Emily Clark" },
-            { destination: "Munich", activities: ["golf"], pricePerPerson: 60, image: "golf1.avif", trainer: "Sweeta Bia" },
-            { destination: "Munich", activities: ["horse racing"], pricePerPerson: 100, image: "horse.jpg", trainer: "Sweeta Bia" },
-            { destination: "Hamburg", activities: ["horse racing"], pricePerPerson: 80, image: "horse1.jpg", trainer: "Sweeta Bia" },
-            { destination: "Höhr-Grenzhausen", activities: ["pottery"], pricePerPerson: 30, image: "pottery.jpg", trainer: "Emily Clark" },
-            { destination: "Meissen", activities: ["pottery"], pricePerPerson: 30, image: "pottery1.jpg", trainer: "Emily Clark" },
-            { destination: "Mecklenburg Lake District", activities: ["Kayaking"], pricePerPerson: 30, image: "kayaking.jpg", trainer: "Laura Wilson" },
-            { destination: "River Rhine", activities: ["Kayaking"], pricePerPerson: 50, image: "kayaking1.jpg", trainer: "Laura Wilson" },
-            { destination: "Black Forest", activities: ["paragliding"], pricePerPerson: 50, image: "paragliding.jpg", trainer: "Laura Wilson" },
-            { destination: "Bavarian Alps", activities: ["paragliding"], pricePerPerson: 50, image: "paragliding1.jpg", trainer: "Laura Wilson" },
-            { destination: "Sylt Island", activities: ["surfing"], pricePerPerson: 150, image: "surfing.jpeg", trainer: "Laura Wilson" },
-            { destination: "Norderney Island", activities: ["surfing"], pricePerPerson: 120, image: "surfing1.jpg", trainer: "Laura Wilson" },
-            { destination: "Baltic Sea", activities: ["fishing"], pricePerPerson: 50, image: "fishing.png", trainer: "Laura Wilson" },
-            { destination: "River Rhine", activities: ["fishing"], pricePerPerson: 30, image: "fishing1.webp", trainer: "Laura Wilson" }
-        ];
+        // ⭐ NEW DATA FOR HOBBIES
+        const hobbyClasses = [
+            {
+                hobby: "yoga",
+                place: "Berlin",
+                price: 20,
+                image: "meeting3.jpeg",
+                trainer: "Aiko Yamamoto",
+                trainerImg: "img1.webp"
+            },
+            {
+                hobby: "yoga",
+                place: "Munich",
+                price: 18,
+                image: "meeting3.jpeg",
+                trainer: "Valentina García",
+                trainerImg: "result1.jpg"
+            },
+            {
+                hobby: "yoga",
+                place: "Dortmund",
+                price: 18,
+                image: "meeting3.jpeg",
+                trainer: "Matteo Ricci",
+                trainerImg: "result2.jpeg"
+            },
+            {
+                hobby: "guitar",
+                place: "Dortmund",
+                price: 25,
+                image: "guitar.jpg",
+                trainer: "Daniel Weber",
+                trainerImg: "trainer3.jpg"
+            },
+            {
+                hobby: "guitar",
+                place: "Hamburg",
+                price: 30,
+                image: "guitar2.jpg",
+                trainer: "Alex Müller",
+                trainerImg: "trainer4.jpg"
+            },
+            {
+                hobby: "cooking",
+                place: "Frankfurt",
+                price: 35,
+                image: "cooking.jpg",
+                trainer: "Emily Clark",
+                trainerImg: "trainer5.jpg"
+            },
+            {
+                hobby: "cooking",
+                place: "Berlin",
+                price: 30,
+                image: "cooking2.jpg",
+                trainer: "Maria Lopez",
+                trainerImg: "trainer6.jpg"
+            }
 
-        // 2️⃣ URL values
+    ]
+
+        // ⭐ Get URL parameters from search input
         const params = new URLSearchParams(window.location.search);
-        const destinationInput = params.get('destination') || '';
-        const people = parseInt(params.get('people')) || 1;
-        const checkin = params.get('checkin') || '';
-        const checkout = params.get('checkout') || '';
+        const hobbyInput = (params.get("hobby") || "").toLowerCase();
+        const locationInput = (params.get("location") || "").toLowerCase();
+        const dateInput = params.get("date") || "";
 
-        // 3️⃣ FILTER
-        const results = tours.filter(tour =>
-            tour.destination.toLowerCase().includes(destinationInput.toLowerCase()) ||
-            tour.activities.some(a => a.toLowerCase().includes(destinationInput.toLowerCase()))
+        const resultsDiv = document.querySelector(".results");
+
+        // ⭐ FILTER BASED ON HOBBY + LOCATION
+        const results = hobbyClasses.filter(item =>
+            item.hobby.toLowerCase().includes(hobbyInput) &&
+            item.place.toLowerCase().includes(locationInput)
         );
 
-        // 4️⃣ DISPLAY
-        const resultsDiv = document.querySelector('.results');
-
+        // ⭐ DISPLAY RESULTS
         if (results.length === 0) {
-            resultsDiv.innerHTML = "<p style='text-align:center; font-size:1.2rem;'>No results found.</p>";
+            resultsDiv.innerHTML = `<p style='text-align:center;font-size:20px;'>No results found.</p>`;
         } else {
-            results.forEach(tour => {
-                const totalPrice = tour.pricePerPerson * people;
-
+            results.forEach(item => {
                 resultsDiv.innerHTML += `
-                    <div class="tour-result">
-                        
-                        <div class="tour-image">
-                            <img src="${tour.image}" alt="${tour.destination}">
-                        </div>
+                <div class="result-card">
 
-                        <div class="tour-details">
-                            <h3>${tour.destination}</h3>
+                    <div class="result-img">
+                        <img src="${item.image}" alt="${item.hobby}">
+                    </div>
 
-                            <p><strong>Activity:</strong> ${tour.activities.join(", ")}</p>
-                            <p><strong>Check-in:</strong> ${checkin || "—"}</p>
-                            <p><strong>Check-out:</strong> ${checkout || "—"}</p>
-                            <p class="total-price"><strong>Total Price:</strong> €${totalPrice}</p>
+                    <div class="result-details">
+                        <h3>${item.hobby.charAt(0).toUpperCase() + item.hobby.slice(1)} Class</h3>
 
-                            <div class="trainer-info">
-                                <img src="hikingp1.jpg" alt="${tour.trainer}">
-                                <div>
-                                    <p><strong>Trainer:</strong> ${tour.trainer}</p>
-                                    <p>Experienced guide for your adventure</p>
-                                </div>
+                        <p><strong>Location:</strong> ${item.place}</p>
+                        <p><strong>Date:</strong> ${dateInput || "—"}</p>
+                        <p><strong>Price:</strong> €${item.price} per session</p>
+
+                        <div class="trainer-info">
+                            <img src="${item.trainerImg}">
+                            <div>
+                                <p><strong>Instructor:</strong> ${item.trainer}</p>
+                                <p>Certified & experienced trainer</p>
                             </div>
                         </div>
                     </div>
+
+                </div>
                 `;
             });
         }
